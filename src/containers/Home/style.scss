@@ -1,0 +1,69 @@
+.hp-title {
+  position: absolute;
+  top: -42px;
+  margin: auto;
+  padding: auto;
+  color: rgba(255, 255, 255, 0.589);
+  z-index: 0;
+  text-shadow: 0 0 3px #ecd4a865, 0 5px 5px #d4a349;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 72px;
+  cursor: pointer;
+}
+
+.hp-title:hover {
+  color: rgba(255, 255, 255, 0.589);
+}
+
+.hp-container {
+  background: rgba(255, 255, 255, 0.342);
+  border-radius: 15px;
+  width: 50%;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  padding: 20px;
+}
+
+.hp-input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.87);
+  font-style: italic;
+}
+
+.error-border {
+  border: 2px solid rgb(141, 32, 32);
+}
+
+.hp-city-container {
+  padding-top: 10px;
+  height: 75%;
+}
+
+.hp-button {
+  color: white;
+  background: #d4a449;
+  text-decoration: none;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 18px;
+  border: 1px solid rgba(80, 63, 8, 0.294);
+  border-radius: 5px;
+  padding: 15px;
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+}
+
+.hp-button:disabled {
+  background: #d4a34942;
+}
+
+.error-message {
+  margin: 10px 0px 18px 0px !important;
+}

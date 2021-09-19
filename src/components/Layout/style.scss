@@ -1,0 +1,23 @@
+.layout {
+  background: url('../../common/images/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  color: white;
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+  font-family: 'Roboto Condensed', sans-serif;
+  text-shadow: 0 1px 1px hsl(0 0% 0% / 20%);
+}
+
+html {
+  background: url('../../common/images/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  color: white;
+  text-shadow: 0 1px 1px hsl(0 0% 0% / 20%);
+}
