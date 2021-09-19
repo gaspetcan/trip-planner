@@ -12,8 +12,6 @@ build/
 src/
 |- index.jsx _______________________________ # Application entry
 |- App.jsx _________________________________ # Application init
-
-agent/
 |  |- agent/index.jsx  # Axios Requests & Response
 |  |- Common/ #Images, Global & OverrideScss
 |  |- Components/
