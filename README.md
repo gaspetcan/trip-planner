@@ -9,15 +9,18 @@
 
 ```
 build/
-agent/
-|- index.jsx _______________________________ # BE Communication Response & Requests
 src/
 |- index.jsx _______________________________ # Application entry
 |- App.jsx _________________________________ # Application init
+
+agent/
+|  |- agent/index.jsx  # Axios Requests & Response
+|  |- Common/ #Images, Global & OverrideScss
 |  |- Components/
 |  |- Containers/
 |  |- Utils/ #Helper Functions
 |  |- Resources/ #API Connection
+
 webpack
 |- paths.js ________________________________ # webpack paths needed
 |- webpack.common.js _______________________ # common webpack config
@@ -42,5 +45,7 @@ webpack
 - [Webpack dev serve](https://github.com/webpack/webpack-dev-server)
 
 ## For this project
+
 - [Axios](https://github.com/axios/axios)
 - [React-Router](https://reactrouter.com/web/guides/quick-start)
+- [Semantic-UI-React](https://react.semantic-ui.com/)
