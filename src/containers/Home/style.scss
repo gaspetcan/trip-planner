@@ -1,21 +1,3 @@
-.hp-title {
-  position: absolute;
-  top: -42px;
-  margin: auto;
-  padding: auto;
-  color: rgba(255, 255, 255, 0.589);
-  z-index: 0;
-  text-shadow: 0 0 3px #ecd4a865, 0 5px 5px #d4a349;
-  font-weight: 600;
-  font-style: italic;
-  font-size: 72px;
-  cursor: pointer;
-}
-
-.hp-title:hover {
-  color: rgba(255, 255, 255, 0.589);
-}
-
 .hp-container {
   background: rgba(255, 255, 255, 0.342);
   border-radius: 15px;

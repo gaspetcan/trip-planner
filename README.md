@@ -12,10 +12,11 @@ build/
 src/
 |- index.jsx _______________________________ # Application entry
 |- App.jsx _________________________________ # Application init
-|  |- agent/index.jsx  # Axios Requests & Response
+|  |- agent/index.jsx  # Requests & Response
 |  |- Common/ #Images, Global & OverrideScss
 |  |- Components/
 |  |- Containers/
+|  |- Provider/ #Context, Provider, Consumer
 |  |- Utils/ #Helper Functions
 |  |- Resources/ #API Connection
 
@@ -44,6 +45,5 @@ webpack
 
 ## For this project
 
-- [Axios](https://github.com/axios/axios)
 - [React-Router](https://reactrouter.com/web/guides/quick-start)
 - [Semantic-UI-React](https://react.semantic-ui.com/)

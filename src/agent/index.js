@@ -1,19 +1,19 @@
-import axios from 'axios';
+const baseURL = 'https://api.pexels.com/v1/';
 
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+const headers = new Headers();
+headers.append(
+  'Authorization',
+  '563492ad6f9170000100000113f6c6c67dda49d08bb00f80c5560043'
+);
 
-const responseBody = response => response;
-
-const requests = {
-  get: url => axios.get(url).then(responseBody),
-  post: (url, body) => axios.post(url, body).then(responseBody),
-  put: (url, body) => axios.put(url, body).then(responseBody),
-  delete: url => axios.delete(url).then(responseBody),
+const requestOptions = {
+  method: 'GET',
+  headers,
+  redirect: 'follow',
 };
 
 const Photos = {
-  list: () => requests.get('/reports'),
-  details: reportId => requests.get(`/reports/${reportId}`),
+  get: name => fetch(`${baseURL}search?query=${name}`, requestOptions),
 };
 
-export default { Photos };
+export { Photos };

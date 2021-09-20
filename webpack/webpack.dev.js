@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const commonPaths = require('./paths');
 
 module.exports = {
   mode: 'development',
@@ -13,6 +12,7 @@ module.exports = {
   },
   devServer: {
     hot: true,
+    historyApiFallback: true,
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
 };

@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Message, Icon, Grid } from 'semantic-ui-react';
 import { mockDailyPrice } from '../../agent/mock';
-import { Card, Layout } from '../../components';
+import { Card, Layout, Logo } from '../../components';
+import { TripContext } from '../../provider/TripProvider';
+import { sumArray } from '../../utils';
 import './style.scss';
 
 const Home = props => {
   const { history } = props;
-  const [budget, setBudget] = useState(null);
-  const [selectedCities, setSelectedCities] = useState([]);
   const [budgetErrorMessage, setBudgetErrorMessage] = useState(null);
+  const { budget, setBudget, selectedCities, setSelectedCities } = useContext(
+    TripContext
+  );
 
   function redirectTo() {
-    const totalPrice = selectedCities.map(c => c.price);
-    const sum = totalPrice.reduce((accumulator, curr) => accumulator + curr);
+    const sum = sumArray(selectedCities.map(c => c.price));
     if (budget >= sum) {
       return history.push('/trip-planner');
     }
@@ -26,24 +28,17 @@ const Home = props => {
   }
 
   const deleteCity = (current, city) => {
-    console.log(city, 'deleted');
     setSelectedCities(current.filter(c => c.name !== city.name));
   };
 
   const addCity = (current, city) => {
-    console.log(city, 'added');
     setSelectedCities([...current, city]);
   };
 
   return (
     <Layout>
       <div className="hp-container">
-        <a
-          href="https://github.com/gaspetcan/trip-planner"
-          className="hp-title"
-        >
-          Trip Planner
-        </a>
+        <Logo />
         <input
           className={`hp-input ${budgetErrorMessage && 'error-border'}`}
           placeholder={budgetErrorMessage || 'Budget ($)'}

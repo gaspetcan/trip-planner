@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
-import { Checkbox } from 'semantic-ui-react';
+import React, { useState, useEffect } from 'react';
+import { Checkbox, Label } from 'semantic-ui-react';
 import './style.scss';
-import mockImage from '../../common/images/bg.jpg';
+import { Photos } from '../../agent';
 
-const Card = ({ name, price, selectedCities, addCity, deleteCity }) => {
+const Card = ({ name, price, selectedCities, addCity, deleteCity, day }) => {
   const [choose, setChoose] = useState(false);
+  const [imageURL, setImageURL] = useState();
+
+  useEffect(() => {
+    if (!imageURL)
+      Photos.get(name)
+        .then(response => response.text())
+        .then(result => setImageURL(JSON.parse(result)?.photos[0]?.src?.medium))
+        .catch(error => error);
+  }, [choose, imageURL]);
 
   const selectAction = () => {
     setChoose(!choose);
@@ -14,10 +23,17 @@ const Card = ({ name, price, selectedCities, addCity, deleteCity }) => {
 
   return (
     <div className={choose ? 'hp-card-chosen' : 'hp-card'}>
-      <Checkbox className="card-checkbox" onClick={selectAction} />
-      <img className="card-image" src={mockImage} alt="" />
-      <span className="card-price">{price} $</span>
+      {selectedCities && (
+        <Checkbox className="card-checkbox" onClick={selectAction} />
+      )}
+      <img className="card-image" src={imageURL} alt="" />
+      <span className="card-price">
+        <Label as="a" color={choose ? 'yellow' : 'gray'} image>
+          {price} $
+        </Label>
+      </span>
       <span className="card-name">{name}</span>
+      {day && <span className="card-day">{day} Day</span>}
     </div>
   );
 };
